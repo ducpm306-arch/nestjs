@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { ProductDto } from 'src/dto/product.dto';
 import { Product } from 'src/models/product.model';
 
 @Injectable()
@@ -13,8 +14,8 @@ export class ProductService {
     return this.product;
   }
 
-  createProducts(): string {
-    return 'POST PRODUCTS';
+  createProducts(productDto: ProductDto): ProductDto {
+    return productDto;
   }
 
   detailProducts(id: number): Product {

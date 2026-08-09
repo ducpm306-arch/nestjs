@@ -1,9 +1,19 @@
-import { Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  ValidationPipe,
+} from '@nestjs/common';
 import { ProductService } from './product.service';
 import { ResponseData } from 'src/global/globalClass';
 import { HttpMessage } from 'src/global/globalEnum';
 import { HttpStatus } from 'src/global/globalEnum';
 import { Product } from 'src/models/product.model';
+import { ProductDto } from 'src/dto/product.dto';
 
 @Controller('products')
 export class ProductController {
@@ -27,10 +37,12 @@ export class ProductController {
   }
 
   @Post()
-  createProducts(): ResponseData<string> {
+  createProducts(
+    @Body(new ValidationPipe()) productDto: ProductDto,
+  ): ResponseData<string> {
     try {
       return new ResponseData<string>(
-        this.productService.createProducts(),
+        this.productService.createProducts(ProductDto),
         HttpStatus.SUCCESS,
         HttpMessage.SUCCESS,
       );
