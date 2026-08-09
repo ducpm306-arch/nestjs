@@ -41,13 +41,13 @@ export class ProductController {
     @Body(new ValidationPipe()) productDto: ProductDto,
   ): ResponseData<string> {
     try {
-      return new ResponseData<string>(
+      return new ResponseData<Product>(
         this.productService.createProducts(ProductDto),
         HttpStatus.SUCCESS,
         HttpMessage.SUCCESS,
       );
     } catch (error) {
-      return new ResponseData<string>(
+      return new ResponseData<Product>(
         null,
         HttpStatus.ERROR,
         HttpMessage.ERROR,

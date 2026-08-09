@@ -14,7 +14,12 @@ export class ProductService {
     return this.product;
   }
 
-  createProducts(productDto: ProductDto): ProductDto {
+  createProducts(productDto: ProductDto): Product {
+    const product: Product = {
+      id: Math.random(),
+      ...productDto,
+    };
+    this.product.push(product);
     return productDto;
   }
 
