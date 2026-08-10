@@ -27,8 +27,12 @@ export class ProductService {
     return this.product.find((item) => item.id === Number(id));
   }
 
-  updateProducts(): string {
-    return 'UPDATE PRODUCT';
+  updateProducts(productDto: ProductDto, id: number): Product {
+    const index = this.getProducts.findIndex((item) => item.id === Number(id));
+    this.product(index).categoryId = productDto.categoryId;
+    this.product(index).productName = productDto.productName;
+    this.product(index).price = productDto.price;
+    return this.product[index];
   }
 
   deleteProducts(): string {
