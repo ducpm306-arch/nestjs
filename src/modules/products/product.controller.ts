@@ -93,15 +93,15 @@ export class ProductController {
   }
 
   @Delete('/:id')
-  deleteProducts(): ResponseData<string> {
+  deleteProducts(@Param('id') id: number): ResponseData<Boolean> {
     try {
-      return new ResponseData<string>(
-        this.productService.deleteProducts(),
+      return new ResponseData<Boolean>(
+        this.productService.deleteProducts(id),
         HttpStatus.SUCCESS,
         HttpMessage.SUCCESS,
       );
     } catch (error) {
-      return new ResponseData<string>(
+      return new ResponseData<Boolean>(
         null,
         HttpStatus.ERROR,
         HttpMessage.ERROR,

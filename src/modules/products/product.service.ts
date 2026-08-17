@@ -27,15 +27,24 @@ export class ProductService {
     return this.product.find((item) => item.id === Number(id));
   }
 
-  updateProducts(productDto: ProductDto, id: number): Product {
-    const index = this.getProducts.findIndex((item) => item.id === Number(id));
-    this.product(index).categoryId = productDto.categoryId;
-    this.product(index).productName = productDto.productName;
-    this.product(index).price = productDto.price;
+  updateProducts(productDto: ProductDto, id: number): Product | null {
+    const index = this.product.findIndex((item) => item.id === Number(id));
+    if (index === -1) {
+      return null;
+    }
+    this.product[index] = {
+      ...this.product[index],
+      ...productDto,
+    };
     return this.product[index];
   }
 
-  deleteProducts(): string {
-    return 'DELETE PRODUCT';
+  deleteProducts(id: number): boolean {
+    const index = this.product.findIndex((item) => item.id === Number(id));
+    if (index !== -1) {
+      this.product.splice(index, 1);
+      return true;
+    }
+    return false;
   }
 }
