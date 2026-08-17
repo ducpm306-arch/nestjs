@@ -1,17 +1,17 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, OneToMany, JoinColumn } from 'typeorm';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { CarsEntity } from './cars.entity';
 
 @Entity('categories')
 export class CategoriesEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @Column()
-  categoryName: string;
+  categoryName!: string;
 
   @Column()
-  description: string;
+  description!: string;
 
-  @OneToMany(() => CarsEntity, cars => cars.categories)
-  @JoinColumn()
-  cars: CarsEntity()
+  @OneToMany(() => CarsEntity, cars => cars.category)
+  cars!: CarsEntity[];
 }

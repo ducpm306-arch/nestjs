@@ -1,21 +1,21 @@
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { CategoriesEntity } from './categories.entity';
 
 @Entity('cars')
-export class CategoriesEntity extends BaseEntity {
+export class CarsEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @Column()
-  productName: string;
+  productName!: string;
 
   @Column()
-  price: string;
+  price!: string;
 
   @Column()
-  category_id: number;
+  category_id!: number;
 
-  @ManyToOne(() => CategoriesEntity)
-  @JoinColumn()
-  category: CategoriesEntity
-
+  @ManyToOne(() => CategoriesEntity, category => category.cars)
+  @JoinColumn({ name: 'category_id' })
+  category!: CategoriesEntity;
 }
