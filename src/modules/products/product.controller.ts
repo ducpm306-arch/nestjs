@@ -23,9 +23,9 @@ export class ProductController {
     @Post()
     createProduct(): ResponseData<string> {
         try {
-            return new ResponseData<Product[]>(this.productService.createProduct(), HttpStatus.SUCCESS, HttpMessage.SUCCESS);
+            return new ResponseData(this.productService.createProduct(), HttpStatus.SUCCESS, HttpMessage.SUCCESS);
         } catch (error) {
-            return new ResponseData<Product[]>(null, HttpStatus.ERROR, HttpMessage.ERROR);
+            return new ResponseData<string>(null, HttpStatus.ERROR, HttpMessage.ERROR);
         }
     }
 
