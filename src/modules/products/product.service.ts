@@ -13,8 +13,8 @@ export class ProductService {
         return this.products;
     }
     
-    createProduct(): string {
-        return 'POST LIST PRODUCT';
+    createProduct(): Product[] {
+        return this.products;
     }
    
     detailProduct(): string {
