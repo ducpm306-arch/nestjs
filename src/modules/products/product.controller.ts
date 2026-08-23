@@ -15,7 +15,7 @@ export class ProductController {
         try {
             return new ResponseData(this.productService.getProducts(), HttpStatus.SUCCESS, HttpMessage.SUCCESS);
         } catch (error) {
-            return new ResponseData(null, HttpStatus.ERROR, HttpMessage.ERROR);
+            return new ResponseData<string>(null, HttpStatus.ERROR, HttpMessage.ERROR);
         }       
     }
 
@@ -24,7 +24,7 @@ export class ProductController {
         try {
             return new ResponseData(this.productService.createProduct(), HttpStatus.SUCCESS, HttpMessage.SUCCESS);
         } catch (error) {
-            return new ResponseData(null, HttpStatus.ERROR, HttpMessage.ERROR);
+            return new ResponseData<string>(null, HttpStatus.ERROR, HttpMessage.ERROR);
         }
     }
 
@@ -33,7 +33,7 @@ export class ProductController {
         try {
             return new ResponseData(this.productService.detailProduct(), HttpStatus.SUCCESS, HttpMessage.SUCCESS);
         } catch (error) {
-            return new ResponseData(null, HttpStatus.ERROR, HttpMessage.ERROR);
+            return new ResponseData<string>(null, HttpStatus.ERROR, HttpMessage.ERROR);
         }
     }
 
@@ -42,7 +42,7 @@ export class ProductController {
         try {
             return new ResponseData(this.productService.updateProduct(), HttpStatus.SUCCESS, HttpMessage.SUCCESS);
         } catch (error) {
-            return new ResponseData(null, HttpStatus.ERROR, HttpMessage.ERROR);
+            return new ResponseData<string>(null, HttpStatus.ERROR, HttpMessage.ERROR);
         }
     }
 
@@ -51,7 +51,7 @@ export class ProductController {
         try {
             return new ResponseData(this.productService.deleteProduct(), HttpStatus.SUCCESS, HttpMessage.SUCCESS);
         } catch (error) {
-            return new ResponseData(null, HttpStatus.ERROR, HttpMessage.ERROR);
+            return new ResponseData<string>(null, HttpStatus.ERROR, HttpMessage.ERROR);
         }
     }
 }
