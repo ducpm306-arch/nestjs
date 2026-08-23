@@ -20,7 +20,7 @@ export class ProductController {
     }
 
     @Post()
-    createProduct(): string {
+    createProduct(): ResponseData<string> {
         try {
             return new ResponseData(this.productService.createProduct(), HttpStatus.SUCCESS, HttpMessage.SUCCESS);
         } catch (error) {
@@ -29,7 +29,7 @@ export class ProductController {
     }
 
     @Get('/:id')
-    detailProduct(): string {
+    detailProduct(): ResponseData<string> {
         try {
             return new ResponseData(this.productService.detailProduct(), HttpStatus.SUCCESS, HttpMessage.SUCCESS);
         } catch (error) {
@@ -38,7 +38,7 @@ export class ProductController {
     }
 
     @Put('/:id')
-    updateProduct(): string {
+    updateProduct(): ResponseData<string> {
         try {
             return new ResponseData(this.productService.updateProduct(), HttpStatus.SUCCESS, HttpMessage.SUCCESS);
         } catch (error) {
@@ -47,7 +47,7 @@ export class ProductController {
     }
 
     @Delete('/:id')
-    deleteProduct(): string {
+    deleteProduct(): ResponseData<string> {
         try {
             return new ResponseData(this.productService.deleteProduct(), HttpStatus.SUCCESS, HttpMessage.SUCCESS);
         } catch (error) {
