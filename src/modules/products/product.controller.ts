@@ -32,7 +32,7 @@ export class ProductController {
     @Get('/:id')
     detailProduct(@Param('id') id: number): ResponseData<number> {
         try {
-            return new ResponseData<number>(id.productService.detailProduct(), HttpStatus.SUCCESS, HttpMessage.SUCCESS);
+            return new ResponseData<number>(this.productService.detailProduct(id), HttpStatus.SUCCESS, HttpMessage.SUCCESS);
         } catch (error) {
             return new ResponseData<number>(null, HttpStatus.ERROR, HttpMessage.ERROR);
         }
