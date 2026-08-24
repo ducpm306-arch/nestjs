@@ -17,8 +17,8 @@ export class ProductService {
         return 'ADD PRODUCT';
     }
    
-    detailProduct(): string {
-        return 'DETAIL PRODUCT';
+    detailProduct(@Param('id') id: number): ResponseData<number> {
+        return new ResponseData<number>(this.productService.detailProduct(id), ...);
     }
     
     updateProduct(): string {
