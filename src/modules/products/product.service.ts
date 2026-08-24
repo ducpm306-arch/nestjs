@@ -17,8 +17,8 @@ export class ProductService {
         return 'ADD PRODUCT';
     }
    
-    detailProduct(): string {
-        return 'Detail Product';
+    detailProduct(id: number): Product | undefined {
+        return this.products.find(item=> item.id === Number(id));
     }
     
     updateProduct(): string {
