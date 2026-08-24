@@ -7,6 +7,6 @@ export class ProductDto {
     @MinLength(5, { message: 'Tên sản phẩm phải dài hơn 5 ký tự' })
     productName?: string;
 
-    @IsNumber( {message: 'Giá tiền phải là số'})
+    @IsNumber({}, {message: 'Giá tiền phải là số'})
     price?: number;
 };
